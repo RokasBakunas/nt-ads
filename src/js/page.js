@@ -2,13 +2,12 @@
 
 
 const stevId = localStorage.getItem("id");
-  
+
+
 
 const addElementToScreen = (data) => {
     const stevPhoto = document.getElementById("product-img");
     stevPhoto.style.backgroundImage = `url(${data.img})`;
-
-
 
 
     const title = document.getElementById("product-name");
@@ -41,10 +40,10 @@ return res.json();
   addElementToScreen(data);
 });
 
-
+//trinimas ad
 const button = document.getElementById("delete_button");
 
-const deleteShip = (id) => {
+const deleteAd = (id) => {
 fetch(`https://642db1a4bf8cbecdb40cc275.mockapi.io/stev/products/${id}`, {
 method: "DELETE",
 })
@@ -60,7 +59,19 @@ setTimeout(() => {
 }, 1000);
 })};
 
+//old delete funkcija
+// button.addEventListener("click", () => {
+//   deleteAd(stevId);
+//   });
 
-button.addEventListener("click", () => {
-  deleteShip(stevId);
+// Klausiam ar tikrai norime ištrinti?
+  button.addEventListener("click", (data) => {
+   
+    if(confirm(`Ar tikrai norite ištrinti šį skelimą? `)){
+      deleteAd(stevId);
+    } else {
+      successMessage.innerHTML = "Skelbimas neištrintas";
+      window.location.replace("./product-info.html");
+
+    }
   });
