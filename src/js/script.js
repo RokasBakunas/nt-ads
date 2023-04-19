@@ -57,3 +57,5 @@ fetch("https://642db1a4bf8cbecdb40cc275.mockapi.io/stev/products")
   .catch((err) => {
     console.log("Klaida: ", err);
   });
+
+
